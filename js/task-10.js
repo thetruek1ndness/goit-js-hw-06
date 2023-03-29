@@ -16,24 +16,21 @@ refs.boxesSpot.style.display = "flex";
 refs.boxesSpot.style.flexWrap = "wrap";
 refs.boxesSpot.style.gap = "15px";
 
-
 let boxesAmount = 0;
 let newBoxes = [];
 
-refs.amountInput.addEventListener('change', (event) => {
+refs.amountInput.addEventListener("change", (event) => {
   boxesAmount = event.currentTarget.value;
-})
+});
 
 const onCreateBtnClick = () => {
-  console.log(boxesAmount);
-
   let boxSize = 30;
 
   for (let i = 0; i < boxesAmount; i += 1) {
     boxSize += 10;
 
     const newBox = document.createElement("div");
-    
+
     newBox.style.backgroundColor = getRandomHexColor();
     newBox.style.width = `${boxSize}px`;
     newBox.style.height = `${boxSize}px`;
@@ -47,10 +44,9 @@ const onCreateBtnClick = () => {
 const onDestroyBtnClick = () => {
   const ourBoxes = refs.boxesSpot.children;
 
-  for (let i = 0; i < ourBoxes.length;) {
-    const box = ourBoxes[i];
+  [...ourBoxes].forEach((box) => {
     box.remove();
-  } 
+  });
 };
 
 refs.createBtn.addEventListener("click", onCreateBtnClick);
