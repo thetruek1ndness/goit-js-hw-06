@@ -42,11 +42,8 @@ const onCreateBtnClick = () => {
 };
 
 const onDestroyBtnClick = () => {
-  const ourBoxes = refs.boxesSpot.children;
-
-  [...ourBoxes].forEach((box) => {
-    box.remove();
-  });
+  refs.amountInput.value = 0;
+  refs.boxesSpot.innerHTML = "";
 };
 
 refs.createBtn.addEventListener("click", onCreateBtnClick);
